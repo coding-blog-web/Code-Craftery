@@ -1,12 +1,11 @@
-import "./Login-page.css";
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import AviaLogo from './AviaLogo.png';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();  // Replace useHistory with useNavigate
 
   const handleValidation = () => {
     const newErrors = {};
@@ -22,90 +21,100 @@ export default function Login() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (handleValidation()) {
-      // Handle form submission
-      console.log('Form submitted');
+      try {
+        const response = await fetch('https://api.avai.woycedemo.com/api/web/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Handle successful login
+          console.log('Login successful:', data);
+          navigate('/Dashboard');  // Use navigate instead of history.push
+        } else {
+          // Handle login error
+          console.error('Login failed:', data.message);
+          setErrors({ server: data.message });
+        }
+      } catch (error) {
+        console.error('An error occurred:', error);
+        setErrors({ server: 'Failed to connect to server. Please try again later.' });
+      }
     }
   };
-
-    return(
-        <div className="login-page">
-            <div className="container">
-                <div className="display-content">
-                    <div className="avia-logo">
-                        <img className="AviaLogo" src={AviaLogo} alt="My Image" />
-                    </div>
-                    <div className="login-screen">
-                        <div className="login-details-content">
-                            <h1 className="login-title">Sign into your account</h1>
-                            <p className="login-discription">
-                            Easily manage your autonomous voice assistants all in one dashboard.
-                            </p>
-                            <div className="divider-container">
-                                <hr className="divider-line" />
-                                <span className="divider-text">OR SIGN IN WITH</span>
-                                <hr className="divider-line" />
-                            </div>
-                            <form onSubmit={handleSubmit}>
-                            <div className="container-form">
-                                <label className="label" htmlFor="email">
-                                Email
-                                </label>
-                                <div>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="Your email address"
-                                    autoCapitalize="none"
-                                    autoComplete="email"
-                                    autoCorrect="off"
-                                    className="input"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                                {errors.email && (
-                                    <p className="error-message">{errors.email}</p>
-                                )}
-                                </div>
-                            </div>
-                            <div className="container-form">
-                                <label className="label" htmlFor="password">
-                                Password
-                                </label>
-                                <div>
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    placeholder="Your password"
-                                    className="input"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
-                                {errors.password && (
-                                    <p className="error-message">{errors.password}</p>
-                                )}
-                                </div>
-                            </div>
-                            <button className="Sign-In-button" type="submit">Sign in</button>
-                            </form>
-                            <div className="sign-up-text"><p>
-                                Don't have an account?  
-                            </p>
-                            <Link to="/SignUp" className="sign-up-link"> Sign up</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="right-side-container">
-                    <div className="img-container">
-                        
-                    </div>
-                </div>
-            </div>
+  return (
+    <div className="login-page">
+      <div className="container">
+        <div className="right-side-container">
+          <div className="img-container"> 
+          <img className="app-logo" src="./assets/images/logo.png" />
+          </div>
         </div>
-    )
+        <div className="display-content">
+          <div className="login-screen">
+            <div className="login-details-content">
+              <h1 className="login-title">Login into your account</h1>
+              <p className="login-description">
+                
+              </p>
+              <form onSubmit={handleSubmit}>
+                {errors.server && <p className="error-message">{errors.server}</p>}
+                <div className="container-form">
+                  <label className="label" htmlFor="email">
+                    Email
+                  </label>
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Your email address"
+                      autoCapitalize="none"
+                      autoComplete="email"
+                      autoCorrect="off"
+                      className="input"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    {errors.email && <p className="error-message">{errors.email}</p>}
+                  </div>
+                </div>
+                <div className="container-form">
+                  <label className="label" htmlFor="password">
+                    Password
+                  </label>
+                  <div>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      placeholder="Your password"
+                      className="input"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    {errors.password && <p className="error-message">{errors.password}</p>}
+                  </div>
+                </div>
+                <button className="Sign-In-button" type="submit">Login</button>
+              </form>
+              
+              <div className="sign-up-text">
+                <p>Don't have an account?</p>
+                <Link to="/SignUp" className="sign-up-link">Sign up</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

@@ -1,29 +1,44 @@
 import "./Login-page.css";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AviaLogo from './AviaLogo.png';
 
 export default function SignUp() {
-    const navigate = useNavigate(); // Hook to navigate programmatically
-
-    // State for form inputs and errors
+    const navigate = useNavigate(); 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
+    const [serverError, setServerError] = useState('');
 
-    // Handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const validationErrors = validateForm();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
         } else {
-            // Perform sign-up logic here (e.g., API call)
-            console.log('Form submitted:', { email, password });
+            try {
+                const response = await fetch('https://api.avai.woycedemo.com/api/web/sign_up', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+                
+                const data = await response.json();
+
+                if (response.ok) {
+                    console.log('Sign up successful:', data);
+                    navigate('/dashboard'); // Redirect to dashboard or any other route after successful sign up
+                } else {
+                    setServerError(data.message || 'Failed to sign up');
+                }
+            } catch (error) {
+                console.error('An error occurred:', error);
+                setServerError('Failed to connect to server. Please try again later.');
+            }
         }
     };
 
-    // Basic form validation
     const validateForm = () => {
         const errors = {};
         if (!email) errors.email = 'Email is required';
@@ -31,29 +46,20 @@ export default function SignUp() {
         return errors;
     };
 
-    // Function to navigate to the first page on "Sign in" click
     const handleSignInClick = () => {
-        navigate('/'); // Navigate to the first page (replace '/' with your desired route)
+        navigate('/'); 
     };
-
+    
     return (
-        <div className="SignUp">
+        <div className="login-page">
             <div className="container">
                 <div className="display-content">
-                    <div className="avia-logo">
-                        <img className="AviaLogo" src={AviaLogo} alt="My Image" />
-                    </div>
                     <div className="login-screen">
                         <div className="login-details-content">
                             <h1 className="login-title">Create your account</h1>
                             <p className="login-discription">
-                            Enter an email and create a password, getting started is easy!
+                                Enter an email and create a password, getting started is easy!
                             </p>
-                            <div className="divider-container">
-                                <hr className="divider-line" />
-                                <span className="divider-text">OR SIGN IN WITH</span>
-                                <hr className="divider-line" />
-                            </div>
                             <form onSubmit={handleSubmit}>
                                 <div className="container-form">
                                     <label className="label" htmlFor="email">
@@ -96,6 +102,9 @@ export default function SignUp() {
                                         )}
                                     </div>
                                 </div>
+                                {serverError && (
+                                    <p className="error-message">{serverError}</p>
+                                )}
                                 <button className="Sign-In-button" type="submit">Sign Up</button>
                             </form>
                             <div className="sign-up-text">
@@ -114,4 +123,3 @@ export default function SignUp() {
         </div>
     );
 }
-
