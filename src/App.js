@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Login/Login-page'; 
 import SignUp from './Login/SingUp';
-import Dashboard from './Dashboard/Dashboard';
+import Header from './Dashboard/header';
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
         <Route path="/" element={<Login />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Dashboard" element={<Header />} />
       </Routes>
     </BrowserRouter>
   );
