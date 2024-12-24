@@ -1,0 +1,109 @@
+.modal-contentw-main {
+    position: absolute;
+    top: 80px;
+    right: 85px;
+    width: 200px;
+    padding: 16px;
+    background-color: #15468B;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: all 10s ease-in-out;
+  }
+  .modal-contentw-btns {
+    margin-bottom: 8px;
+  }
+  .modal-button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.845); 
+    color: black; 
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .modal-button-1 {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.845); 
+    color: black; 
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .modal-button-1:hover {
+    background-color: #ffa200;
+    color: white;
+  }
+  .modal-button:hover {
+    background-color: red;
+    color: white;
+  }
+  .modal-contentw {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffa200;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  .modal-icon {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+  }
+  .h2-model {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .p-model {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .modal-btnw {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .confirm-logout {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .confirm-logout:hover {
+    background-color: #000000;
+    color: white;
+  }
+  
+  .confirm-logout svg {
+    margin-left: 8px;
+  }
+  
+  .cancel-logout {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
