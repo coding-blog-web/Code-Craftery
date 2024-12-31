@@ -116,7 +116,7 @@ export default function SignUp() {
                 </div>
                 <div className="right-side-container">
                     <div className="img-container">
-                        {/* Add any additional content or images here */}
+          <img className="app-logo" src="./assets/images/1236589.png" />
                     </div>
                 </div>
             </div>

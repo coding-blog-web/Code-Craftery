@@ -20,10 +20,10 @@ const FeedbackCard = ({ name, role, feedback, image }) => {
         />
         <div>
           <h3 className="font-bold text-lg">{name}</h3>
-          <p className="text-gray-500">{role}</p>
+          <p className="text-gray-500 text-justify">{role}</p>
         </div>
       </div>
-      <p className="text-gray-600 text-sm">{feedback}</p>
+      <p className=" text-blue-900 text-justify text-sm">{feedback}</p>
     </div>
   );
 };

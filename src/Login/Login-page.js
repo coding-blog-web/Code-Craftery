@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import "./Login-page.css";
+
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -66,7 +68,6 @@ export default function Login() {
                 
               </p>
               <form onSubmit={handleSubmit}>
-                {errors.server && <p className="error-message">{errors.server}</p>}
                 <div className="container-form">
                   <label className="label" htmlFor="email">
                     Email
@@ -104,6 +105,7 @@ export default function Login() {
                     {errors.password && <p className="error-message">{errors.password}</p>}
                   </div>
                 </div>
+                {errors.server && <p className="error-message">{errors.server}</p>}
                 <button className="Sign-In-button" type="submit">Login</button>
               </form>
               
