@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaExclamationCircle, FaArrowRight } from "react-icons/fa";
+import { FaExclamationCircle, FaArrowRight, FaBars } from "react-icons/fa";
 import Modal from "@mui/material/Modal";
 import { NavLink } from "react-router-dom";
 import "./style.css";
@@ -8,6 +8,7 @@ const Header = () => {
   const [openMainModal, setOpenMainModal] = useState(false);
   const [openLogoutModal, setOpenLogoutModal] = useState(false);
   const [openProfileModal, setOpenProfileModal] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleOpenMainModal = () => setOpenMainModal(true);
   const handleCloseMainModal = () => setOpenMainModal(false);
@@ -51,12 +52,30 @@ const Header = () => {
     <div className="text-[#ffa200]">
       <div className="flex justify-between items-center px-6 py-4">
         {/* Logo Section */}
-        <div className="flex justify-center relative left-[100px]">
-          <img src="./assets/images/11.png" alt="Logo" className="w-[175px]" />
+        <div className="flex items-center">
+          <img
+            src="./assets/images/11.png"
+            alt="Logo"
+            className="w-[150px] sm:w-[175px]"
+          />
+        </div>
+
+        {/* Hamburger Menu for Mobile */}
+        <div className="sm:hidden">
+          <button
+            className="text-xl text-white"
+            onClick={() => setIsNavOpen(!isNavOpen)}
+          >
+            <FaBars />
+          </button>
         </div>
 
         {/* Navigation Bar */}
-        <nav className="space-x-6 text-xl">
+        <nav
+          className={`absolute sm:static top-[60px] left-0 w-full sm:w-auto bg-gray-800 sm:bg-transparent flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 text-xl transition-all ${
+            isNavOpen ? "block" : "hidden"
+          }`}
+        >
           {nav.map((item) => (
             <NavLink
               key={item}
@@ -66,6 +85,7 @@ const Header = () => {
                   ? "text-[#F5A319] underline"
                   : "hover:text-[#F5A319] transition"
               }
+              onClick={() => setIsNavOpen(false)} // Close menu on selection
             >
               {item}
             </NavLink>
@@ -73,7 +93,7 @@ const Header = () => {
         </nav>
 
         {/* Profile and Modals */}
-        <div className="flex justify-center relative right-[100px]">
+        <div className="hidden sm:flex justify-center">
           <button
             className="rounded-full overflow-hidden border-2 border-white"
             onClick={handleOpenMainModal}
@@ -86,6 +106,8 @@ const Header = () => {
           </button>
         </div>
       </div>
+
+      {/* Main Modal */}
       <Modal
         open={openMainModal}
         onClose={handleCloseMainModal}
@@ -99,7 +121,6 @@ const Header = () => {
             </button>
           </div>
           <div className="modal-contentw-btns">
-            {" "}
             <button
               onClick={() => alert("Reset Password functionality")}
               className="modal-button-1"
@@ -123,9 +144,7 @@ const Header = () => {
         aria-describedby="profile-info"
       >
         <div className="modal-contentw">
-          <div>
-            <h2 className="h2-model">Profile Information</h2>
-          </div>
+          <h2 className="h2-model">Profile Information</h2>
           {Email && userId ? (
             <div>
               <p>Email: {Email}</p>

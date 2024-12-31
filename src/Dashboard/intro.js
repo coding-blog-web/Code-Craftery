@@ -1,195 +1,137 @@
-
 import React from 'react';
-import feature1Image from '../assets/feature1.png';// Correct path
-import feature2Image from '../assets/feature2.png'; // Correct path
-import feature3Image from '../assets/feature3.png'; // Correct path
-import yourImage from '../assets/feature4.png'; // Adjust the path based on where your image is
-import ashishImage from '../assets/ashish.png';
-import debbiImage from '../assets/debbi.png';
-import makwanaImage from '../assets/makwana.png';
-import abc from '../assets/& Video.png';
-import logo from '../assets/unnamed 2.png'
+import { Link } from 'react-router-dom';
 
+function LandingPage() {
+  const FeatureCard = ({ title, description }) => (
+    <div className="p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition">
+      <h3 className="text-lg font-bold text-yellow-500 mb-4">{title}</h3>
+      <p className="text-sm text-blue-900">{description}</p>
+    </div>
+  );
 
-
-const LandingPage = () => {
+const FeedbackCard = ({ name, role, feedback, image }) => {
   return (
-    <div className="light grayish-white text-gray-200 min-h-screen">
-      {/* Header */}
-      <header className="light grayish-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-          <img src={logo} alt="Code Craftery Logo" className="h-10" />
-          <button className="bg-yellow-400 text-gray-900 px-4 py-2 rounded">Login</button>
-        </div>
-
-      </header>
-
-      {/* Main Section */}
-      <main className="container mx-auto px-4 py-8">
-        <section className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-yellow-400">Code Craftery Present</h2>
-          <p className="text-blue-500 mb-6">
-          Code Craftery website is a visionary coding blog website project that aims to create an immersive and enriching space for individuals passionate about programming. The project focuses on providing a user-friendly platform where both novice and seasoned developers can access valuable resources, engage with dynamic content, and foster a sense of community.          </p>
-          <button className="bg-yellow-400 text-gray-900 px-6 py-3 rounded text-lg font-semibold">
-            Get Started
-          </button>
-          <h2 className="text-3xl font-bold text-yellow-400">Features of Code Craftery</h2>
-        </section>
-
-        {/* Features Section */}
-        <section className="grid md:grid-cols-3 gap-6 mb-12">
-      {/* Feature 1 */}
-      <div className="bg-gray-100 p-6 rounded-lg text-center">
+    <div className="border border-gray-200 rounded-lg p-6 shadow-lg bg-white">
+      <div className="flex items-center space-x-4 mb-4">
         <img
-          src={feature1Image}
-          alt="Feature 1"
-          className="mx-auto mb-4 rounded-lg"
+          src={image}
+          alt={name}
+          className="w-16 h-16 rounded-full object-cover"
         />
-        <h3 className="text-xl font-bold mb-2 text-yellow-400">Easy-to-use interface</h3>
-        <p className='text-blue-500'>In-Browser Compilation: Alow users to write and compile code directy within the browser, without the need for additional software.</p>
-      </div>
-
-      {/* Feature 2 */}
-      <div className="bg-gray-100 p-6 rounded-lg text-center">
-        <img
-          src={feature2Image}
-          alt="Feature 2"
-          className="mx-auto mb-4 rounded-lg"
-        />
-        <h3 className="text-xl font-bold mb-2 text-yellow-400">Automatic document generation</h3>
-        <p className='text-blue-500'>Step-by-Step Guides: Clear and concise tutorials that break down complex coding tasks into manageable steps.</p>
-      </div>
-
-      {/* Feature 3 */}
-      <div className="bg-gray-100 p-6 rounded-lg text-center">
-        <img
-          src={feature3Image}
-          alt="Feature 3"
-          className="mx-auto mb-4 rounded-lg"
-        />
-        <h3 className="text-xl font-bold mb-2 text-yellow-400">Better than ChatGPT</h3>
-        <p className='text-blue-500'>Step-by-Step Guides: Clear and concise tutorials that break down complex coding tasks into manageable steps.</p>
-      </div>
-    </section>
-        {/* Automation Section */}
         <div>
-  <section className="text-center mb-12">
-    <h2 className="text-3xl font-bold text-yellow-400">Automate your process</h2>
-    <div className="md:grid md:grid-cols-2 gap-6 items-start">
-      {/* Left Column: Features */}
-      <div className="space-y-6">
-        {/* Feature: Streamline Intake */}
-        <div className="bg-gray-100 p-6 rounded-lg">
-          <h3 className="text-xl font-bold mb-2 text-yellow-400">Streamline Intake</h3>
-          <p className='text-blue-500'>Send your clients an intake form to capture data and start using it for document generation.</p>
-        </div>
-
-        {/* Feature: Demand Letter */}
-        <div className="bg-gray-100 p-6 rounded-lg">
-          <h3 className="text-xl font-bold mb-2 text-yellow-400">Demand Letter</h3>
-          <p className='text-blue-500'>Generate customized demand letters for your clients.</p>
-        </div>
-
-        {/* Feature: Case Management */}
-        <div className="bg-gray-100 p-6 rounded-lg">
-          <h3 className="text-xl font-bold mb-2 text-yellow-400">Case Management</h3>
-          <p className='text-blue-500'>Easily manage your client's data and supplement as needed.</p>
+          <h3 className="font-bold text-lg">{name}</h3>
+          <p className="text-gray-500">{role}</p>
         </div>
       </div>
-
-      <div className="space-y-6">
-        {/* Image */}
-        <div>
-          <img src={yourImage} alt="Automate Process" className="w-full h-auto rounded-lg" />
-        </div>
-        </div>
- 
-        {/* Watch a Demo */}
-
-        <div className="mr-4 flex-shrink-0">
-    <img src={abc} alt="Automate Process1" className="w-full h-auto rounded-lg object-cover" />
-  </div>
-        <div className="bg-gray-100 p-6 rounded-lg  items-start ">
-          <h3 className="text-xl font-bold mb-2 text-yellow-400">Watch a Demo</h3>
-          <p className='text-blue-500'>Step-by-Step Guides: Clear and concise tutorials that break down complex coding tasks into manageable steps. Progress Tracking: A system to track readers' progress through tutorials and provide feedback.Step-by-Step Guides: Clear and concise tutorials that break down complex coding tasks into manageable steps. Progress Tracking: A system to track readers' progress through tutorials and provide feedback.</p>
-        </div>
-      
-      
-    </div>
-  </section>
-</div>
-
-
-
-{/* Feedback Section */}
-
-<section className="mb-12">
-  <h2 className="text-3xl font-bold text-yellow-400">Feedback from our clients</h2>
-  <div className="grid md:grid-cols-3 gap-6">
-    
-    {/* Feedback Card 1 */}
-    <div className="bg-gray-100 p-6 rounded-lg flex items-center">
-      {/* Person's Image */}
-      <div className="w-16 h-16 rounded-full mr-6">
-        <img src={ashishImage} alt="Ashish Sekhva" className="w-full h-full object-cover  overflow-visible" />
-      </div>
-      {/* Feedback Text */}
-      <div>
-        <h3 className="text-xl font-bold mb-2 text-gray-900">Ashish Sekhva</h3>
-        <p className='text-black'>"Use this section to describe your company and the products you offer. You could share your company’s story and details about why you are in business."</p>
-      </div>
-    </div>
-
-    {/* Feedback Card 2 */}
-    <div className="bg-gray-100 p-6 rounded-lg flex items-center">
-      {/* Person's Image */}
-      <div className="w-12 h-12 rounded-full mr-6">
-        <img src={debbiImage} alt="Debbi Devang" className="w-full h-full object-cover overflow-visible" />
-      </div>
-      {/* Feedback Text */}
-      <div>
-        <h3 className="text-xl font-bold mb-2 text-gray-900">Debbi Devang</h3>
-        <p className='text-black'>"Use this section to describe your company and the products you offer. You could share your company’s story and details about why you are in business."</p>
-      </div>
-    </div>
-
-    {/* Feedback Card 3 */}
-    <div className="bg-gray-100 p-6 rounded-lg flex items-center">
-      {/* Person's Image */}
-      <div className="w-12 h-12 rounded-full mr-6">
-        <img src={makwanaImage} alt="Mr. Makwana" className="w-full h-full object-cover overflow-visible" />
-      </div>
-      {/* Feedback Text */}
-      <div>
-        <h3 className="text-xl font-bold mb-2 text-gray-900">Mr. Makwana</h3>
-        <p className='text-black'>"Use this section to describe your company and the products you offer. You could share your company’s story and details about why you are in business."</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-</main>
-
-      {/* Footer */}
-      
-      <footer className="bg-black p-4">
-      
-        <div className="container mx-auto text-center">
-          <ul className="flex justify-center space-x-4 mt-2">
-            <li>PROJECT</li>
-            <li>SOCIALS</li>
-            <li>LEGAL</li>
-          </ul>
-          <div className="container mx-auto flex justify-between items-center">
-          <img src={logo} alt="Code Craftery Logo" className="h-10" />
-        </div>
-        <p>&copy; 2024 Code Craftery. All rights reserved.</p>
-
-        </div>
-        
-      </footer>
+      <p className="text-gray-600 text-sm">{feedback}</p>
     </div>
   );
 };
+  const feedbacks = [
+    {
+      name: "Ashish Sekhva",
+      role: "Chief Manager",
+      feedback:
+        "Use this section to describe your company and the products you offer. You could share your company’s story and details about why you are in business.",
+      image: "https://via.placeholder.com/150", // Replace with actual image URLs
+    },
+    {
+      name: "Dabhi Devang",
+      role: "Chief Manager",
+      feedback:
+        "Use this section to describe your company and the products you offer. You could share your company’s story and details about why you are in business.",
+      image: "https://via.placeholder.com/150",
+    },
+    {
+      name: "Mr. Makwana",
+      role: "Chief Manager",
+      feedback:
+        "Use this section to describe your company and the products you offer. You could share your company’s story and details about why you are in business.",
+      image: "https://via.placeholder.com/150",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center">
+      <nav className="w-full py-4 px-6 flex justify-between items-center bg-gray-50 shadow-md">
+        <div className="flex items-center">
+          <img src="./assets/images/logo.png" alt="Code Craftery Logo" className="h-10" />
+        </div>
+        <Link to="/Login">
+          <button className="px-4 py-2 bg-yellow-500 text-white rounded-full shadow-md hover:bg-yellow-600 transition">Login</button>
+        </Link>
+      </nav>
+
+      <section className="flex flex-col items-center text-center px-4 py-10    justify-center">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-yellow-500">Code Craftery Present</h1>
+        <p className="mt-4  text-blue-900 text-justify text-sm md:text-lg max-w-2xl font-medium">
+          <strong>Code Craftery</strong> website is a visionary coding blog website project that aims to create an immersive and enriching space for individuals passionate about programming. The project focuses on providing a user-friendly platform where both novice and seasoned developers can access valuable resources, engage with dynamic content, and foster a sense of community.
+        </p>
+        <Link to="/Login">
+          <button className="mt-8 px-6 py-3 bg-yellow-500 text-white rounded-full shadow-md text-lg font-semibold hover:bg-yellow-600 transition">Get Started</button>
+        </Link>
+      </section>
+
+      <section className="py-12 px-4 w-full">
+        <h2 className="text-2xl font-bold text-yellow-500 text-center mb-8">Features of Code Craftery</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <FeatureCard title="Easy-to-use interface" description="In-Browser Compilation: Write and compile code directly within the browser." />
+          <FeatureCard title="Automatic document generation" description="Step-by-Step Guides: Clear tutorials breaking down complex tasks." />
+          <FeatureCard title="Voice Control Dashboard" description="Interactive tutorials with feedback and progress tracking." />
+        </div>
+      </section>
+
+      <section className="py-12 px-6 w-full">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-center text-3xl font-bold text-yellow-500 mb-12">Automate Your Process</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <div className="mb-8">
+                <h3 className="text-lg font-bold text-yellow-500">Streamline Intake</h3>
+                <p className="text-sm text-blue-900">Send your clients an intake form to capture data and generate documents.</p>
+              </div>
+              <div className="mb-8">
+                <h3 className="text-lg font-bold text-yellow-500">Demand Letter</h3>
+                <p className="text-sm text-blue-900">Generate customized demand letters for your clients.</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-yellow-500">Case Management</h3>
+                <p className="text-sm text-blue-900">Easily manage client data and supplement as needed.</p>
+              </div>
+            </div>
+            <div className="flex justify-end">
+              <img src="./assets/images/grp.png" alt="Process illustration" className="w-[400px] h-[250px]" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 px-6 w-full">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-gray-200 rounded-lg overflow-hidden shadow-md">
+              <iframe className="w-full h-64" src="" title="Demo Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-yellow-500">Watch a demo:</h3>
+              <p className="text-sm font-semibold text-blue-900 mt-2">Complete Online Video  Tutorials :</p>
+              <p className="text-sm text-blue-900 mt-2">Step-by-Step Guides: Clear and concise tutorials that break down complex coding tasks into manageable steps. Progress Tracking: A system to track readers' progress through tutorials and provide feedback.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="text-center p-2">
+      <h2 className="text-2xl md:text-4xl font-bold text-yellow-500 mb-8">
+        Feedback from our clients
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {feedbacks.map((feedback, index) => (
+          <FeedbackCard key={index} {...feedback} />
+        ))}
+      </div>
+    </section>
+    </div>
+  );
+}
 
 export default LandingPage;
