@@ -47,7 +47,7 @@ export default function SignUp() {
     };
 
     const handleSignInClick = () => {
-        navigate('/'); 
+        navigate('/Login'); 
     };
     
     return (
