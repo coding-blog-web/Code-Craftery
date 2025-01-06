@@ -1,0 +1,121 @@
+:root {
+    --bg-color-light: #ffffff;
+    --text-color-light: #000000;
+    --bg-color-dark: #1e1e1e;
+    --text-color-dark: #ffffff;
+  }
+  
+  .app.light {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+  }
+  
+  .app.dark {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+  }
+  
+  .app-header button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .app-header button:hover {
+    opacity: 0.8;
+  }
+  
+  .file-tabs button {
+    background-color: inherit;
+    color: inherit;
+    border: 1px solid currentColor;
+  }
+  
+  .file-tabs button.active {
+    font-weight: bold;
+    border: 2px solid currentColor;
+  }
+  
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .app-header {
+    background-color: #282c34;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .app-body {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    flex-direction: column;
+  }
+  
+  .file-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  
+  .file-tabs button {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+  
+  .file-tabs button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .file-tabs button:hover {
+    background-color: #d0d0d0;
+  }
+  
+  .editor-output {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+  
+  .editor,
+  .output {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .app-body {
+      flex-direction: column;
+    }
+  
+    .editor,
+    .output {
+      flex: none;
+      width: 100%;
+    }
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  

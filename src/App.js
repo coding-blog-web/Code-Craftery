@@ -4,6 +4,7 @@ import Login from './Login/Login-page';
 import SignUp from './Login/SingUp';
 import Header from './Dashboard/header';
 import LandingPage from './Dashboard/intro';
+import Ground from './components/compilarHCJ';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Dashboard" element={<Header />} />
+        <Route path="/play-ground" element={<Ground />} />
       </Routes>
     </BrowserRouter>
   );
