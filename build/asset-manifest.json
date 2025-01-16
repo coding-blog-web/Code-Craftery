@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.98d79d1d.css",
-    "main.js": "/static/js/main.25d515e1.js",
-    "static/js/614.3f0b90da.chunk.js": "/static/js/614.3f0b90da.chunk.js",
-    "static/js/320.1663cd42.chunk.js": "/static/js/320.1663cd42.chunk.js",
-    "static/js/351.f54a3839.chunk.js": "/static/js/351.f54a3839.chunk.js",
-    "static/js/421.0095e120.chunk.js": "/static/js/421.0095e120.chunk.js",
-    "static/js/542.8cc6148d.chunk.js": "/static/js/542.8cc6148d.chunk.js",
-    "static/js/443.5714c808.chunk.js": "/static/js/443.5714c808.chunk.js",
-    "static/media/background.png": "/static/media/background.91a1d290be2dda3154b8.png",
-    "index.html": "/index.html",
-    "main.98d79d1d.css.map": "/static/css/main.98d79d1d.css.map",
-    "main.25d515e1.js.map": "/static/js/main.25d515e1.js.map",
-    "614.3f0b90da.chunk.js.map": "/static/js/614.3f0b90da.chunk.js.map",
-    "320.1663cd42.chunk.js.map": "/static/js/320.1663cd42.chunk.js.map",
-    "351.f54a3839.chunk.js.map": "/static/js/351.f54a3839.chunk.js.map",
-    "542.8cc6148d.chunk.js.map": "/static/js/542.8cc6148d.chunk.js.map",
-    "443.5714c808.chunk.js.map": "/static/js/443.5714c808.chunk.js.map"
+    "main.css": "/Code-Craftery/static/css/main.79b979fd.css",
+    "main.js": "/Code-Craftery/static/js/main.a49b3615.js",
+    "static/js/614.3f0b90da.chunk.js": "/Code-Craftery/static/js/614.3f0b90da.chunk.js",
+    "static/js/320.1663cd42.chunk.js": "/Code-Craftery/static/js/320.1663cd42.chunk.js",
+    "static/js/351.f54a3839.chunk.js": "/Code-Craftery/static/js/351.f54a3839.chunk.js",
+    "static/js/421.0095e120.chunk.js": "/Code-Craftery/static/js/421.0095e120.chunk.js",
+    "static/js/542.8cc6148d.chunk.js": "/Code-Craftery/static/js/542.8cc6148d.chunk.js",
+    "static/js/443.5714c808.chunk.js": "/Code-Craftery/static/js/443.5714c808.chunk.js",
+    "static/media/background.png": "/Code-Craftery/static/media/background.91a1d290be2dda3154b8.png",
+    "index.html": "/Code-Craftery/index.html",
+    "main.79b979fd.css.map": "/Code-Craftery/static/css/main.79b979fd.css.map",
+    "main.a49b3615.js.map": "/Code-Craftery/static/js/main.a49b3615.js.map",
+    "614.3f0b90da.chunk.js.map": "/Code-Craftery/static/js/614.3f0b90da.chunk.js.map",
+    "320.1663cd42.chunk.js.map": "/Code-Craftery/static/js/320.1663cd42.chunk.js.map",
+    "351.f54a3839.chunk.js.map": "/Code-Craftery/static/js/351.f54a3839.chunk.js.map",
+    "542.8cc6148d.chunk.js.map": "/Code-Craftery/static/js/542.8cc6148d.chunk.js.map",
+    "443.5714c808.chunk.js.map": "/Code-Craftery/static/js/443.5714c808.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.98d79d1d.css",
-    "static/js/main.25d515e1.js"
+    "static/css/main.79b979fd.css",
+    "static/js/main.a49b3615.js"
   ]
 }
